@@ -30,6 +30,25 @@ class SettingSeeder extends Seeder
             ['company', 'company.account_name', 'Account name', 'text', 'MOA EXCEL INTERNATIONAL', null, false],
             ['company', 'company.account_number', 'Account number', 'text', '1214299808', null, false],
 
+            // Look and feel of the public site. Everything here is a CSS
+            // variable, so changing a value restyles the page with no deploy.
+            ['theme', 'theme.bg', 'Page background', 'color', '#ffffff', null, false],
+            ['theme', 'theme.fg', 'Page text', 'color', '#000000', null, false],
+            ['theme', 'theme.inverse_bg', 'Dark section background', 'color', '#000000', null, false],
+            ['theme', 'theme.inverse_fg', 'Dark section text', 'color', '#ffffff', null, false],
+            ['theme', 'theme.muted_bg', 'Soft section background', 'color', '#f4f4f2', null, false],
+            ['theme', 'theme.border', 'Border colour', 'color', '#e3e3e0', null, false],
+            ['theme', 'theme.accent', 'Accent colour', 'color', '#000000', 'Used for buttons and highlights.', false],
+
+            ['theme', 'theme.display_min', 'Headline size — small screens', 'text', '2.75rem', 'Smallest size a big headline shrinks to.', false],
+            ['theme', 'theme.display_max', 'Headline size — large screens', 'text', '10rem', 'Largest size a big headline grows to.', false],
+            ['theme', 'theme.section_heading_max', 'Section heading size', 'text', '4.5rem', null, false],
+            ['theme', 'theme.body_size', 'Body text size', 'text', '1.0625rem', null, false],
+            ['theme', 'theme.bullet_size', 'Bullet point size', 'text', '1.125rem', 'Size of the ticked lists in the sign-up cards.', false],
+            ['theme', 'theme.eyebrow_size', 'Small label size', 'text', '0.8125rem', null, false],
+            ['theme', 'theme.radius', 'Corner roundness', 'text', '1.5rem', null, false],
+            ['theme', 'theme.max_width', 'Content width', 'text', '80rem', null, false],
+
             ['email', 'mail.from_name', 'Sender name', 'text', 'TechCo Signature', 'The name people see when an email arrives.', false],
             ['email', 'mail.from_address', 'Sender address', 'text', 'techco979@gmail.com', null, false],
             ['email', 'mail.reply_to', 'Reply-to address', 'text', 'techco979@gmail.com', null, false],
