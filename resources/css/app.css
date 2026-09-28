@@ -26,6 +26,25 @@
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
+
+    /* Display face for the big monochrome headlines on the public site. */
+    --font-display: 'Archivo', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Public site: tight, heavy, edge-to-edge display type. */
+.display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    line-height: 0.86;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 @layer theme {
