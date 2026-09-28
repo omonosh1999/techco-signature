@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Cache;
 
 class SiteContent extends Model
 {
-    protected $fillable = ['key', 'section', 'label', 'type', 'value', 'help', 'position'];
+    protected $fillable = ['key', 'page', 'section', 'label', 'type', 'value', 'help', 'position'];
 
     protected static function booted(): void
     {

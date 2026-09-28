@@ -18,148 +18,211 @@ class SiteContentSeeder extends Seeder
     }
 
     /**
-     * Single editable strings, grouped by the section of the page they appear in.
+     * Single editable strings. Keys are prefixed with the page they belong to
+     * so the admin screen can group them; `global` strings appear everywhere.
      */
     private function content(): void
     {
         $fields = [
-            // -- Brand / global ------------------------------------------------
-            ['brand.name', 'brand', 'Company name', 'text', 'TechCo Signature'],
-            ['brand.tagline', 'brand', 'Tagline', 'text', 'Trained first. Then hired.'],
+            // ─── Global ───────────────────────────────────────────────────
+            ['global.brand.name', 'global', 'brand', 'Company name', 'text', 'TechCo Signature'],
+            ['global.brand.tagline', 'global', 'brand', 'Tagline', 'text', 'Brands built to be believed.'],
 
-            // -- Navigation ----------------------------------------------------
-            ['nav.link_1', 'nav', 'Menu item 1', 'text', 'How it works'],
-            ['nav.link_2', 'nav', 'Menu item 2', 'text', 'What we do'],
-            ['nav.link_3', 'nav', 'Menu item 3', 'text', 'Programmes'],
-            ['nav.link_4', 'nav', 'Menu item 4', 'text', 'Join us'],
-            ['nav.login', 'nav', 'Log in button', 'text', 'Log in'],
-            ['nav.signup', 'nav', 'Sign up button', 'text', 'Get started'],
+            ['global.nav.home', 'global', 'nav', 'Menu — home', 'text', 'Agency'],
+            ['global.nav.work', 'global', 'nav', 'Menu — what we do', 'text', 'What we do'],
+            ['global.nav.recruitment', 'global', 'nav', 'Menu — recruitment', 'text', 'Recruitment'],
+            ['global.nav.school', 'global', 'nav', 'Menu — school', 'text', 'Branding School'],
+            ['global.nav.login', 'global', 'nav', 'Log in button', 'text', 'Log in'],
+            ['global.nav.signup', 'global', 'nav', 'Sign up button', 'text', 'Get started'],
 
-            // -- Hero ----------------------------------------------------------
-            ['hero.eyebrow', 'hero', 'Small label above headline', 'text', 'Recruitment · Training · Branding · Digital media'],
-            ['hero.line1', 'hero', 'Headline line 1', 'text', 'TRAINED'],
-            ['hero.line2', 'hero', 'Headline line 2', 'text', 'FIRST.'],
-            ['hero.line3', 'hero', 'Headline line 3', 'text', 'THEN HIRED.'],
-            ['hero.body', 'hero', 'Paragraph under the headline', 'textarea', 'Most agencies send your CV and hope. We rebuild it with you, put you through a real interview first, and only then introduce you to an employer.'],
-            ['hero.cta_primary', 'hero', 'Main button', 'text', 'I want a job'],
-            ['hero.cta_secondary', 'hero', 'Second button', 'text', 'I want to refer people'],
+            ['global.contact.email', 'global', 'contact', 'Email address', 'text', 'techco979@gmail.com'],
+            ['global.contact.phone', 'global', 'contact', 'Phone / WhatsApp', 'text', '+234 704 484 0134'],
+            ['global.contact.address', 'global', 'contact', 'Address', 'text', 'Abuja, Federal Capital Territory, Nigeria'],
+            ['global.contact.hours', 'global', 'contact', 'Office hours', 'text', 'Monday to Friday, 9:00am – 5:00pm WAT'],
+            ['global.contact.rc', 'global', 'contact', 'RC number', 'text', 'RC 9592495'],
+            ['global.contact.tin', 'global', 'contact', 'Tax Identification Number', 'text', 'TIN 2623700950121'],
+            ['global.footer.note', 'global', 'contact', 'Footer paragraph', 'textarea', 'TechCo Signature Limited is registered with the Corporate Affairs Commission under the Companies and Allied Matters Act 2020.'],
 
-            // -- Trust strip ---------------------------------------------------
-            ['trust.label', 'trust', 'Strip text', 'text', 'We work with ministries, schools, non-profits and growing businesses across Nigeria'],
+            // ─── Home — the digital agency ────────────────────────────────
+            ['home.hero.eyebrow', 'home', 'hero', 'Small label', 'text', 'A digital agency in Abuja'],
+            ['home.hero.line1', 'home', 'hero', 'Headline line 1', 'text', 'BRANDS'],
+            ['home.hero.line2', 'home', 'hero', 'Headline line 2', 'text', 'BUILT TO BE'],
+            ['home.hero.line3', 'home', 'hero', 'Headline line 3', 'text', 'BELIEVED.'],
+            ['home.hero.body', 'home', 'hero', 'Paragraph', 'textarea', 'We build the websites, run the campaigns and shape the brands that make people take an organisation seriously.'],
+            ['home.hero.cta_primary', 'home', 'hero', 'Main button', 'text', 'Start a project'],
+            ['home.hero.cta_secondary', 'home', 'hero', 'Second button', 'text', 'See what we do'],
 
-            // -- Process -------------------------------------------------------
-            ['process.eyebrow', 'process', 'Small label', 'text', 'How it works'],
-            ['process.heading', 'process', 'Heading', 'text', 'FOUR STEPS. NO GUESSWORK.'],
-            ['process.body', 'process', 'Paragraph beside heading', 'textarea', 'You always know where you stand and what happens next. Nobody is left waiting in the dark.'],
+            ['home.trust.label', 'home', 'trust', 'Trust strip', 'text', 'We work with ministries, schools, non-profits and growing businesses across Nigeria'],
 
-            // -- Services ------------------------------------------------------
-            ['services.eyebrow', 'services', 'Small label', 'text', 'What we do'],
-            ['services.heading', 'services', 'Heading', 'text', 'FOUR THINGS. ONE ROOF.'],
-            ['services.body', 'services', 'Paragraph beside heading', 'textarea', 'Most people come to us for one of these. Many stay for three.'],
+            ['home.services.eyebrow', 'home', 'services', 'Small label', 'text', 'What we do'],
+            ['home.services.heading', 'home', 'services', 'Heading', 'text', 'THE WORK WE DO BEST'],
+            ['home.services.body', 'home', 'services', 'Paragraph beside heading', 'textarea', 'Six services. Take one, or hand us the whole thing.'],
 
-            // -- Programmes ----------------------------------------------------
-            ['programmes.eyebrow', 'programmes', 'Small label', 'text', 'Where to begin'],
-            ['programmes.heading', 'programmes', 'Heading', 'text', 'TWO WAYS TO START'],
-            ['programmes.link_label', 'programmes', 'Link on each programme card', 'text', 'See what it costs'],
+            ['home.approach.eyebrow', 'home', 'approach', 'Small label', 'text', 'How we work'],
+            ['home.approach.heading', 'home', 'approach', 'Heading', 'text', 'NO SURPRISES. EVER.'],
+            ['home.approach.body', 'home', 'approach', 'Paragraph beside heading', 'textarea', 'You know the scope, the price and the date before we start. Then we start.'],
 
-            // -- Fees / trust --------------------------------------------------
-            ['fees.heading', 'fees', 'Heading', 'text', 'NO HIDDEN FEES. EVER.'],
-            ['fees.body', 'fees', 'Paragraph', 'textarea', 'You see every fee in writing before you pay anything. We charge for training you receive, not for a promise. We never ask a job seeker for a bank account number, a BVN or a card.'],
-            ['fees.note', 'fees', 'Small print under the paragraph', 'text', 'Prices are shown when you choose a programme during registration.'],
+            ['home.arms.eyebrow', 'home', 'arms', 'Small label', 'text', 'More than an agency'],
+            ['home.arms.heading', 'home', 'arms', 'Heading', 'text', 'TWO MORE THINGS WE DO'],
+            ['home.arms.body', 'home', 'arms', 'Paragraph', 'textarea', 'One TechCo account gives you all of it.'],
 
-            // -- Mid band ------------------------------------------------------
-            ['band.line1', 'band', 'Big line 1', 'text', 'BE READY.'],
-            ['band.line2', 'band', 'Big line 2', 'text', 'BE CHOSEN.'],
-            ['band.cta', 'band', 'Button', 'text', 'Start now'],
+            ['home.cta.heading', 'home', 'cta', 'Heading', 'text', 'LET US TALK.'],
+            ['home.cta.body', 'home', 'cta', 'Paragraph', 'textarea', 'Tell us what you are trying to build. First conversation costs nothing.'],
+            ['home.cta.button', 'home', 'cta', 'Button', 'text', 'Start a project'],
 
-            // -- Sign-up paths -------------------------------------------------
-            ['paths.eyebrow', 'paths', 'Small label', 'text', 'Choose your path'],
-            ['paths.heading', 'paths', 'Heading', 'text', 'WHICH ONE ARE YOU?'],
+            // ─── Recruitment ──────────────────────────────────────────────
+            ['recruitment.hero.eyebrow', 'recruitment', 'hero', 'Small label', 'text', 'TechCo Recruitment'],
+            ['recruitment.hero.line1', 'recruitment', 'hero', 'Headline line 1', 'text', 'TRAINED'],
+            ['recruitment.hero.line2', 'recruitment', 'hero', 'Headline line 2', 'text', 'FIRST.'],
+            ['recruitment.hero.line3', 'recruitment', 'hero', 'Headline line 3', 'text', 'THEN HIRED.'],
+            ['recruitment.hero.body', 'recruitment', 'hero', 'Paragraph', 'textarea', 'Most agencies send a CV and hope. We get people ready first, then we introduce them.'],
+            ['recruitment.hero.cta_primary', 'recruitment', 'hero', 'Main button', 'text', 'Choose your path'],
 
-            ['paths.candidate_title', 'paths', 'Job seeker card — title', 'text', 'I am looking for a job'],
-            ['paths.candidate_body', 'paths', 'Job seeker card — paragraph', 'textarea', 'Join the Job Readiness Programme. We get you ready, then we introduce you to employers who are hiring.'],
-            ['paths.candidate_points', 'paths', 'Job seeker card — list (one per line)', 'textarea', "Your CV rebuilt with you by a real person\nA real mock interview, with honest feedback\nA certificate that is yours to keep\nWe never promise a job. We promise you will be ready."],
-            ['paths.candidate_cta', 'paths', 'Job seeker card — button', 'text', 'Start my application'],
+            ['recruitment.doors.eyebrow', 'recruitment', 'doors', 'Small label', 'text', 'Three ways in'],
+            ['recruitment.doors.heading', 'recruitment', 'doors', 'Heading', 'text', 'WHICH ONE ARE YOU?'],
 
-            ['paths.agent_title', 'paths', 'Agent card — title', 'text', 'I want to refer people'],
-            ['paths.agent_body', 'paths', 'Agent card — paragraph', 'textarea', 'Bring us people who are looking for work. When we place them, you get paid.'],
-            ['paths.agent_points', 'paths', 'Agent card — list (one per line)', 'textarea', "Earn commission on every successful placement\nTrack every referral in your own dashboard\nPaid by bank transfer, with a statement each time\nFree to join"],
-            ['paths.agent_cta', 'paths', 'Agent card — button', 'text', 'Become an agent'],
+            ['recruitment.doors.employer_title', 'recruitment', 'doors', 'Employer — title', 'text', 'I need staff'],
+            ['recruitment.doors.employer_body', 'recruitment', 'doors', 'Employer — paragraph', 'textarea', 'Tell us the role. We send you three to five people who are ready to work, not a pile of CVs.'],
+            ['recruitment.doors.employer_points', 'recruitment', 'doors', 'Employer — list (one per line)', 'textarea', "Every candidate is trained and screened before you see them\nA 90-day free replacement on every hire\nYou pay nothing until someone starts work"],
+            ['recruitment.doors.employer_cta', 'recruitment', 'doors', 'Employer — button', 'text', 'Hire through us'],
 
-            // -- Team ----------------------------------------------------------
-            ['team.eyebrow', 'team', 'Small label', 'text', 'Who you deal with'],
-            ['team.heading', 'team', 'Heading', 'text', 'THE PEOPLE BEHIND THIS'],
+            ['recruitment.doors.candidate_title', 'recruitment', 'doors', 'Job seeker — title', 'text', 'I am looking for a job'],
+            ['recruitment.doors.candidate_body', 'recruitment', 'doors', 'Job seeker — paragraph', 'textarea', 'Join the Job Readiness Programme. We get you ready, then we introduce you to employers who are hiring.'],
+            ['recruitment.doors.candidate_points', 'recruitment', 'doors', 'Job seeker — list (one per line)', 'textarea', "Your CV rebuilt with you by a real person\nA real mock interview, with honest feedback\nA certificate that is yours to keep\nWe never promise a job. We promise you will be ready."],
+            ['recruitment.doors.candidate_cta', 'recruitment', 'doors', 'Job seeker — button', 'text', 'Start my application'],
 
-            // -- Testimonials --------------------------------------------------
-            ['testimonials.eyebrow', 'testimonials', 'Small label', 'text', 'In their words'],
-            ['testimonials.heading', 'testimonials', 'Heading', 'text', 'WHAT PEOPLE SAY'],
+            ['recruitment.doors.agent_title', 'recruitment', 'doors', 'Agent — title', 'text', 'I want to refer people'],
+            ['recruitment.doors.agent_body', 'recruitment', 'doors', 'Agent — paragraph', 'textarea', 'Bring us people who are looking for work. When we place them, you get paid.'],
+            ['recruitment.doors.agent_points', 'recruitment', 'doors', 'Agent — list (one per line)', 'textarea', "Earn commission on every successful placement\nTrack every referral in your own dashboard\nPaid by bank transfer, with a statement each time\nFree to join"],
+            ['recruitment.doors.agent_cta', 'recruitment', 'doors', 'Agent — button', 'text', 'Become an agent'],
 
-            // -- Closing CTA ---------------------------------------------------
-            ['cta.heading', 'cta', 'Heading', 'text', 'READY WHEN YOU ARE.'],
-            ['cta.body', 'cta', 'Paragraph', 'textarea', 'One conversation. No cost, and no obligation.'],
-            ['cta.button', 'cta', 'Button', 'text', 'Get started'],
+            ['recruitment.steps.eyebrow', 'recruitment', 'steps', 'Small label', 'text', 'How it works'],
+            ['recruitment.steps.heading', 'recruitment', 'steps', 'Heading', 'text', 'FOUR STEPS. NO GUESSWORK.'],
+            ['recruitment.steps.body', 'recruitment', 'steps', 'Paragraph beside heading', 'textarea', 'You always know where you stand and what happens next.'],
 
-            // -- Footer / contact ----------------------------------------------
-            ['contact.email', 'contact', 'Email address', 'text', 'techco979@gmail.com'],
-            ['contact.phone', 'contact', 'Phone / WhatsApp', 'text', '+234 704 484 0134'],
-            ['contact.address', 'contact', 'Address', 'text', 'Abuja, Federal Capital Territory, Nigeria'],
-            ['contact.hours', 'contact', 'Office hours', 'text', 'Monday to Friday, 9:00am – 5:00pm WAT'],
-            ['contact.rc', 'contact', 'RC number', 'text', 'RC 9592495'],
-            ['contact.tin', 'contact', 'Tax Identification Number', 'text', 'TIN 2623700950121'],
-            ['footer.note', 'contact', 'Footer paragraph', 'textarea', 'TechCo Signature Limited is registered with the Corporate Affairs Commission under the Companies and Allied Matters Act 2020.'],
+            ['recruitment.fees.heading', 'recruitment', 'fees', 'Heading', 'text', 'NO HIDDEN FEES. EVER.'],
+            ['recruitment.fees.body', 'recruitment', 'fees', 'Paragraph', 'textarea', 'You see every fee in writing before you pay anything. We charge for training you receive, not for a promise. We never ask a job seeker for a bank account number, a BVN or a card.'],
+            ['recruitment.fees.note', 'recruitment', 'fees', 'Small print', 'text', 'Prices are shown when you choose a programme during registration.'],
+
+            ['recruitment.cta.heading', 'recruitment', 'cta', 'Heading', 'text', 'READY WHEN YOU ARE.'],
+            ['recruitment.cta.body', 'recruitment', 'cta', 'Paragraph', 'textarea', 'One conversation. No cost, and no obligation.'],
+            ['recruitment.cta.button', 'recruitment', 'cta', 'Button', 'text', 'Get started'],
+
+            // ─── Branding School ──────────────────────────────────────────
+            ['school.hero.eyebrow', 'school', 'hero', 'Small label', 'text', 'TechCo Branding School'],
+            ['school.hero.line1', 'school', 'hero', 'Headline line 1', 'text', 'LEARN'],
+            ['school.hero.line2', 'school', 'hero', 'Headline line 2', 'text', 'THE SKILL.'],
+            ['school.hero.line3', 'school', 'hero', 'Headline line 3', 'text', 'USE IT MONDAY.'],
+            ['school.hero.body', 'school', 'hero', 'Paragraph', 'textarea', 'Practical digital skills taught online, month by month. Start with one subject or take several. Stop whenever you want.'],
+            ['school.hero.cta_primary', 'school', 'hero', 'Main button', 'text', 'Enrol now'],
+            ['school.hero.cta_secondary', 'school', 'hero', 'Second button', 'text', 'See the subjects'],
+
+            ['school.streams.eyebrow', 'school', 'streams', 'Small label', 'text', 'What you can learn'],
+            ['school.streams.heading', 'school', 'streams', 'Heading', 'text', 'PICK YOUR SUBJECT'],
+            ['school.streams.body', 'school', 'streams', 'Paragraph beside heading', 'textarea', 'Every subject is taught by someone who does this work for real clients.'],
+
+            ['school.how.eyebrow', 'school', 'how', 'Small label', 'text', 'How it works'],
+            ['school.how.heading', 'school', 'how', 'Heading', 'text', 'SIMPLE AS IT SOUNDS'],
+            ['school.how.body', 'school', 'how', 'Paragraph beside heading', 'textarea', 'No entrance exam. No long contract. No catch.'],
+
+            ['school.fees.heading', 'school', 'fees', 'Heading', 'text', 'PAY BY THE MONTH.'],
+            ['school.fees.body', 'school', 'fees', 'Paragraph', 'textarea', 'You pay for one month at a time and stop at the end of any month you have paid for. There is no joining fee and no long contract.'],
+            ['school.fees.note', 'school', 'fees', 'Small print', 'text', 'The monthly fee is shown when you choose your subjects during registration.'],
+
+            ['school.join.title', 'school', 'join', 'Register page — title', 'text', 'I want to learn'],
+            ['school.join.body', 'school', 'join', 'Register page — paragraph', 'textarea', 'Create your TechCo account, pick your subjects, and start this month.'],
+            ['school.join.points', 'school', 'join', 'Register page — list (one per line)', 'textarea', "Four subjects to choose from\nPay one month at a time\nStop at the end of any month you have paid for\nA certificate when you finish a subject"],
+
+            ['school.cta.heading', 'school', 'cta', 'Heading', 'text', 'START THIS MONTH.'],
+            ['school.cta.body', 'school', 'cta', 'Paragraph', 'textarea', 'Register, pick your subjects, and begin.'],
+            ['school.cta.button', 'school', 'cta', 'Button', 'text', 'Enrol now'],
         ];
 
-        foreach ($fields as $position => [$key, $section, $label, $type, $value]) {
+        foreach ($fields as $position => [$key, $page, $section, $label, $type, $value]) {
             SiteContent::updateOrCreate(
                 ['key' => $key],
-                compact('section', 'label', 'type', 'value') + ['position' => $position],
+                compact('page', 'section', 'label', 'type', 'value') + ['position' => $position],
             );
         }
     }
 
     /**
-     * Repeatable blocks — the admin can add, reorder, hide or delete these.
+     * Repeatable blocks. Collection names are prefixed with their page.
      */
     private function items(): void
     {
         $collections = [
-            'stats' => [
-                ['value' => 'One to one', 'label' => 'Every candidate is trained by a real person'],
-                ['value' => '90 days', 'label' => 'Free replacement guarantee for employers'],
-                ['value' => 'Four', 'label' => 'Subjects you can study with us'],
-            ],
+            // ─── Home ─────────────────────────────────────────────────────
+            'home.stats' => ['home', [
+                ['value' => 'Six', 'label' => 'Services under one roof'],
+                ['value' => 'Fixed', 'label' => 'Scope and price agreed before we start'],
+                ['value' => 'Abuja', 'label' => 'Working with clients across Nigeria'],
+            ]],
 
-            'process' => [
+            'home.services' => ['home', [
+                ['title' => 'Web development', 'body' => 'Websites and web applications that load fast, work properly and are easy for your own team to run.'],
+                ['title' => 'Social media management', 'body' => 'We plan it, write it, design it and post it. Every month, on schedule, without chasing.'],
+                ['title' => 'Brand visibility', 'body' => 'Getting the right people to notice you, and to remember you the next time they need what you do.'],
+                ['title' => 'Brand strategy and identity', 'body' => 'We work out what you stand for and say it clearly. Research first. Design second.'],
+                ['title' => 'Digital consultancy', 'body' => 'Straight advice on what to build, what to drop, and what it should honestly cost.'],
+                ['title' => 'Bespoke projects', 'body' => 'Work that does not fit a template. We scope it, price it, and build it properly.'],
+            ]],
+
+            'home.approach' => ['home', [
+                ['number' => '01', 'title' => 'We listen', 'body' => 'You tell us the problem. We ask hard questions before we quote anything.'],
+                ['number' => '02', 'title' => 'We agree it in writing', 'body' => 'Scope, price and dates, on one page, signed by both of us.'],
+                ['number' => '03', 'title' => 'We build', 'body' => 'You see progress as it happens. No disappearing for three weeks.'],
+                ['number' => '04', 'title' => 'We hand over', 'body' => 'You own everything. We show your team how to run it themselves.'],
+            ]],
+
+            'home.arms' => ['home', [
+                ['title' => 'TechCo Recruitment', 'body' => 'We find organisations the staff they need, and we get job seekers ready before anyone interviews them.', 'link' => 'recruitment', 'label' => 'See recruitment'],
+                ['title' => 'TechCo Branding School', 'body' => 'Practical digital skills taught online, month by month. Open to anyone with a TechCo account.', 'link' => 'school', 'label' => 'See the school'],
+            ]],
+
+            'home.testimonials' => ['home', []],
+
+            // ─── Recruitment ──────────────────────────────────────────────
+            'recruitment.steps' => ['recruitment', [
                 ['number' => '01', 'title' => 'Register', 'body' => 'Tell us who you are. Confirm your email with the code we send you. It takes two minutes.'],
                 ['number' => '02', 'title' => 'Get ready', 'body' => 'We rebuild your CV with you. We run a real mock interview. We show you how to present yourself.'],
                 ['number' => '03', 'title' => 'Meet the employer', 'body' => 'When a job suits you, we introduce you in writing. You arrive prepared, screened and briefed.'],
                 ['number' => '04', 'title' => 'Start work', 'body' => 'You take the job. We check in after 30, 60 and 90 days to make sure it is going well.'],
-            ],
+            ]],
 
-            'services' => [
-                ['title' => 'Recruitment', 'body' => 'We find you staff who are ready on day one. Every hire comes with a 90-day free replacement.'],
-                ['title' => 'Branding', 'body' => 'We work out what your brand stands for, then say it clearly. Research first. Design second.'],
-                ['title' => 'Digital marketing', 'body' => 'We run your social media, content and adverts, and report on the numbers that matter to you.'],
-                ['title' => 'Branding School', 'body' => 'Learn branding, digital marketing, technology, or English and presentation. Online, month by month.'],
-            ],
+            'recruitment.stats' => ['recruitment', [
+                ['value' => 'One to one', 'label' => 'Every candidate is trained by a real person'],
+                ['value' => '90 days', 'label' => 'Free replacement guarantee for employers'],
+                ['value' => 'In writing', 'label' => 'Every fee shown before you pay'],
+            ]],
 
-            'programmes' => [
-                ['title' => 'Job Readiness Programme', 'body' => 'We rebuild your CV, put you through a real mock interview, and coach how you present yourself. You finish with a certificate. You get all of it whether or not a job comes.'],
-                ['title' => 'TechCo Branding School', 'body' => 'Four subjects, taught online. Take one or take several. Stop at the end of any month you have paid for. No long contract.'],
-            ],
+            // ─── Branding School ──────────────────────────────────────────
+            'school.streams' => ['school', [
+                ['title' => 'Digital marketing', 'body' => 'Social media, content planning, paid adverts and reading the numbers. The skills most small businesses are paying for right now.'],
+                ['title' => 'Technology skills', 'body' => 'The practical digital tools every modern workplace expects you to already know.'],
+                ['title' => 'Branding and brand strategy', 'body' => 'What a brand really is, how to position one, and how to say what it stands for.'],
+                ['title' => 'English and presentation', 'body' => 'Speaking, writing and presenting yourself well. The reason most good candidates lose good interviews.'],
+            ]],
 
-            'team' => [
-                ['name' => 'Abel Joy Chidinma', 'role' => 'Founder and Chief Executive', 'bio' => 'Brand strategist and registered teacher. She leads our branding, media, recruitment and training work.'],
-            ],
+            'school.how' => ['school', [
+                ['number' => '01', 'title' => 'Register', 'body' => 'Create your TechCo account and confirm your email. Two minutes.'],
+                ['number' => '02', 'title' => 'Pick your subjects', 'body' => 'Take one or take several. You see the monthly fee before you pay.'],
+                ['number' => '03', 'title' => 'Learn online', 'body' => 'Lessons, assignments and real feedback on your work.'],
+                ['number' => '04', 'title' => 'Get certified', 'body' => 'Finish a subject and your certificate is issued.'],
+            ]],
 
-            'testimonials' => [],
+            'school.stats' => ['school', [
+                ['value' => 'Four', 'label' => 'Subjects to choose from'],
+                ['value' => 'Monthly', 'label' => 'Pay as you go, stop any time'],
+                ['value' => 'Online', 'label' => 'Learn from anywhere in Nigeria'],
+            ]],
         ];
 
-        foreach ($collections as $collection => $rows) {
+        foreach ($collections as $collection => [$page, $rows]) {
             SiteItem::query()->where('collection', $collection)->delete();
 
             foreach ($rows as $position => $data) {
-                SiteItem::create(compact('collection', 'data', 'position'));
+                SiteItem::create(compact('collection', 'page', 'data', 'position'));
             }
         }
     }

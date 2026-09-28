@@ -3,14 +3,20 @@
 use Illuminate\Support\Facades\Route;
 
 Route::livewire('/', 'pages::home')->name('home');
+Route::livewire('recruitment', 'pages::recruitment')->name('recruitment');
+Route::livewire('branding-school', 'pages::school')->name('school');
 
-Route::livewire('join/job-seeker', 'pages::join.start')
-    ->defaults('path', 'candidate')
-    ->name('join.candidate');
+// One registration component, four doors into it.
+$joinPaths = [
+    'join/job-seeker' => ['candidate', 'join.candidate'],
+    'join/agent' => ['agent', 'join.agent'],
+    'join/employer' => ['employer', 'join.employer'],
+    'join/student' => ['student', 'join.student'],
+];
 
-Route::livewire('join/agent', 'pages::join.start')
-    ->defaults('path', 'agent')
-    ->name('join.agent');
+foreach ($joinPaths as $uri => [$path, $name]) {
+    Route::livewire($uri, 'pages::join.start')->defaults('path', $path)->name($name);
+}
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');

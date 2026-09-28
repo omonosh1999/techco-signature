@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Cache;
 
 class SiteItem extends Model
 {
-    protected $fillable = ['collection', 'data', 'position', 'is_visible'];
+    protected $fillable = ['collection', 'page', 'data', 'position', 'is_visible'];
 
     protected function casts(): array
     {
@@ -51,5 +51,20 @@ class SiteItem extends Model
         foreach (static::query()->distinct()->pluck('collection') as $name) {
             Cache::forget("site_items.{$name}");
         }
+    }
+
+    /**
+     * Several collections at once, keyed by their short name.
+     *
+     * `home.services` comes back as `services`, so a page component can hand
+     * its view exactly the names the markup uses.
+     *
+     * @return array<string, \Illuminate\Support\Collection<int, array<string, mixed>>>
+     */
+    public static function forPage(string $page, array $names): array
+    {
+        return collect($names)
+            ->mapWithKeys(fn (string $name) => [$name => static::collection("{$page}.{$name}")])
+            ->all();
     }
 }
